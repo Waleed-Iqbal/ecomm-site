@@ -13,7 +13,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        {/* this is not inside Switch since its gonna be displayed on all pages */}
+        {/* NavBar is not inside Switch since its gonna be displayed on all pages */}
         <NavBar />
         <Switch>
           <Route exact path="/" component={ProductList} />
