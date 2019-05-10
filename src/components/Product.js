@@ -13,7 +13,7 @@ export default class Product extends Component {
             <Link to="/details">
               <img src={img} alt="product" className="card-img-top" />
             </Link>
-            <button className="cart-btn" disabled={inCart ? true : false} onClick={() => { console.log('added to cart'); }} >
+            <button className="cart-btn" disabled={inCart ? true : false} onClick={() => { console.log('added to cart'); }}>
               {
                 inCart
                   ?
@@ -22,13 +22,13 @@ export default class Product extends Component {
                   <i className="fa fa-cart-plus"></i>
               }
             </button>
-            <div className="card-footer d-flex justify-content-between">
-              <p className="align-self-center mb-0">{title}</p>
-              <h5 className="text-blue font-italic mb-0">
-                <span className="mr-1">$</span>
-                {price}
-              </h5>
-            </div>
+          </div>
+          <div className="card-footer d-flex justify-content-between">
+            <p className="align-self-center mb-0">{title}</p>
+            <h5 className="text-blue font-italic mb-0">
+              <span className="mr-1">$</span>
+              {price}
+            </h5>
           </div>
         </div>
       </ProductWrapper>
@@ -54,5 +54,28 @@ const ProductWrapper = styled.div`
   .card-footer {
     background-color: rgba(247, 247, 247);
   }
+}
+  .img-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-img-top {
+    transition: transform 0.3s linear;
+  }
+
+  .img-container:hover .card-img-top {
+    transform: scale(1.15);
+  }
+
+  .cart-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0.2rem 0.4rem;
+    background: var(--lightBlue);
+    border: none;
+    color: var(--mainWhite);
+  } 
 }
 `;
