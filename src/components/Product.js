@@ -37,30 +37,33 @@ export default class Product extends Component {
 }
 
 const ProductWrapper = styled.div`
-.card {
-  border: transparent;
-  transition: all 0.3s linear;
-}
-.card-footer {
-  background: transparent;
-  border-top: transparent;
-  transition: all 0.3s linear;
-}
-&:hover {
   .card {
-    border: 0.04rem solid rgba(0, 0, 0, 0.2);
-    box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2);
+    border: transparent;
+    transition: all 0.3s linear;
   }
+
   .card-footer {
-    background-color: rgba(247, 247, 247);
+    background: transparent;
+    border-top: transparent;
+    transition: all 0.3s linear;
   }
-}
+
+  &:hover {
+    .card {
+      border: 0.04rem solid rgba(0, 0, 0, 0.2);
+      box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2);
+    }
+    .card-footer {
+      background-color: rgba(247, 247, 247);
+    }
+  }
+
   .img-container {
     position: relative;
     overflow: hidden;
   }
 
-  .card-img-top {
+  .cart-btn, .card-img-top {
     transition: transform 0.3s linear;
   }
 
@@ -76,6 +79,17 @@ const ProductWrapper = styled.div`
     background: var(--lightBlue);
     border: none;
     color: var(--mainWhite);
-  } 
+    font-size: 1.4rem;
+    border-radius: 0.5rem 0 0 0;
+    transform: translate(100%, 100%);
+  }
+  .cart-btn:hover {
+    color: var(--mainBlue);
+    cursor: pointer;
+  }
+
+  .img-container:hover .cart-btn {
+    transform: translate(0%, 0%);
+  }
 }
 `;
