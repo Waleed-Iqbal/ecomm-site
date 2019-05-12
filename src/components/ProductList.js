@@ -12,13 +12,13 @@ export default class ProductList extends Component {
           <div className="container">
             <Title name="our" title="products" />
             <div className="row">
-            <ProductConsumer>
-              {value=>{
-               return value.products.map(product => {
-                 return <Product product={product} key={product.id} />
-               })
-              }}
-            </ProductConsumer>
+              <ProductConsumer>
+                {value => {
+                  return value.products.map(product => {
+                    return <Product product={product} key={product.id} />
+                  })
+                }}
+              </ProductConsumer>
             </div>
           </div>
         </div>

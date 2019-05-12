@@ -15,7 +15,7 @@ class ProductProvider extends Component {
       const product = { ...item };
       tempProducts = [...tempProducts, product];
     });
-    this.setState(() => { return { products: tempProducts } })
+    this.setState({ products: tempProducts });
   }
 
   componentDidMount() {
@@ -28,10 +28,7 @@ class ProductProvider extends Component {
 
   handleDetail = (id) => {
     const product = this.getItem(id);
-    this.setState(() => {
-      return { detailProduct: product };
-    });
-
+    this.setState({ detailProduct: product });
   }
 
   addToCart = (id) => {
