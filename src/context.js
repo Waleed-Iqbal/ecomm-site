@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {storeProducts, detailProduct} from './data';
+import { storeProducts, detailProduct } from './data';
 
 const ProductContext = React.createContext();
 
@@ -12,19 +12,26 @@ class ProductProvider extends Component {
   setProducts = () => {
     let tempProducts = [];
     storeProducts.forEach(item => {
-      const product = {...item};
+      const product = { ...item };
       tempProducts = [...tempProducts, product];
     });
-    this.setState(()=>{return {products:tempProducts}})
+    this.setState(() => { return { products: tempProducts } })
   }
 
   componentDidMount() {
     this.setProducts();
   }
 
+  getItem = (id) => {
+    return this.state.products.find(product => product.id === id);
+  }
 
-  handleDetail = () => {
-    console.log("hello from detail");
+  handleDetail = (id) => {
+    const product = this.getItem(id);
+    this.setState(() => {
+      return { detailProduct: product };
+    });
+
   }
 
   addToCart = (id) => {
@@ -38,7 +45,7 @@ class ProductProvider extends Component {
         handleDetails: this.handleDetail,
         addToCart: this.addToCart
       }}>
-        { this.props.children }
+        {this.props.children}
       </ProductContext.Provider>
     )
   }
