@@ -8,7 +8,7 @@ class ProductProvider extends Component {
     products: [],
     detailProduct: detailProduct,
     cart: [],
-    modalOpen: true,
+    modalOpen: false,
     modalProduct: detailProduct
   };
 
@@ -42,6 +42,7 @@ class ProductProvider extends Component {
     product.count = 1;
     const price = product.price;
     product.total = price;
+    
     this.setState({
       products: allProducts,
       cart: [...this.state.cart, product]
