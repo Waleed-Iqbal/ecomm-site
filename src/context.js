@@ -82,6 +82,7 @@ class ProductProvider extends Component {
       cart: [] 
     }, () => {
       this.setProducts();
+      this.addTotals();
     });
   }
 
