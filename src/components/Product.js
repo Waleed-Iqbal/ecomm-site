@@ -13,11 +13,15 @@ export default class Product extends Component {
 
           <ProductConsumer>
             {value => (
-              <div className="img-container p-5" onClick={() => { console.log("clicked"); }} >
+              <div className="img-container p-5" onClick={() => {
+                value.handleDetail(id);
+              }}>
                 <Link to="/details">
                   <img src={img} alt="product" className="card-img-top" />
                 </Link>
-                <button className="cart-btn" disabled={inCart ? true : false} onClick={() => { console.log('added to cart'); }}>
+                <button className="cart-btn" disabled={inCart ? true : false} onClick={() => {
+                  value.addToCart(id);
+                }}>
                   {
                     inCart
                       ?
@@ -33,8 +37,7 @@ export default class Product extends Component {
           <div className="card-footer d-flex justify-content-between">
             <p className="align-self-center mb-0">{title}</p>
             <h5 className="text-blue font-italic mb-0">
-              <span className="mr-1">$</span>
-              {price}
+              <span className="mr-1">$</span>{price}
             </h5>
           </div>
         </div>

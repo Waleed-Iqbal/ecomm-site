@@ -39,7 +39,7 @@ class ProductProvider extends Component {
     return (
       <ProductContext.Provider value={{
         ...this.state,
-        handleDetails: this.handleDetail,
+        handleDetail: this.handleDetail,
         addToCart: this.addToCart
       }}>
         {this.props.children}
